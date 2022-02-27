@@ -13,6 +13,11 @@ inputs:
       description: 'name of the person'
       required: false
       default: "HEllo"
+  mytoken:
+    description: 'name of the person'
+    required: false
+    default: "HEllo"
+
 outputs:
   time: # output will be available to future steps
     description: 'The current time after waiting'
