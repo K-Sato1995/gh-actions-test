@@ -25,4 +25,4 @@ runs:
   using: 'node12'
   main: 'dist/index.js'
   steps:
-    run: pwd && ls
+    - run: pwd && ls
