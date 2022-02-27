@@ -8315,9 +8315,9 @@ async function makeComment() {
       return;
     }
     const pull_request_number = context.payload.pull_request.number;
-    const octokit = new github.GitHub(process.env.GITHUB_TOKEN);
+    const octokit = github.getOctokit(process.env.GITHUB_TOKEN || '');
 
-
+    console.log(!!process.env.GITHUB_TOKEN)
     core.info(octokit.context);
     core.info(pull_request_number);
     await octokit.issues.createComment({
