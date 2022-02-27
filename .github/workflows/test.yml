@@ -16,7 +16,7 @@ jobs:
     - run: npm test
 
   # test action works running from the graph
-  test:
+  action-in-development:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
