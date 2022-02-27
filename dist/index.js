@@ -8319,7 +8319,8 @@ async function makeComment() {
 
 
     const octokit = github.getOctokit(process.env.GITHUB_TOKEN || '');
-
+    core.info(octokit.context);
+    core.info(pull_request_number);
     await octokit.issues.createComment({
       ...context.repo,
       issue_number: pull_request_number,
