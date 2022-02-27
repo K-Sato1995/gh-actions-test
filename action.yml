@@ -5,6 +5,10 @@ inputs:
     description: 'number of milliseconds to wait'
     required: true
     default: '1000'
+  name:
+      description: 'name of the person'
+      required: false
+      default: "DEFAULT NAME DEFINED IN action.yml"
 outputs:
   time: # output will be available to future steps
     description: 'The current time after waiting'
