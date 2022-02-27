@@ -24,4 +24,6 @@ jobs:
       with:
         milliseconds: 1000
         name: "K-Sato"
-        
+        message: "HELLO WORLD"
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
