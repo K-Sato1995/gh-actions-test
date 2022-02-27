@@ -14,6 +14,7 @@ async function makeComment() {
     const myToken = core.getInput('myToken');
     const octokit = github.getOctokit(myToken);
 
+
     console.log(!!process.env.GITHUB_TOKEN)
     console.log(!!myToken)
     core.info(octokit)
@@ -24,7 +25,7 @@ async function makeComment() {
     core.info(octokit.issues)
     core.info(pull_request_number);
 
-    await octokit.issues.createComment({
+    await octokit.rest.issues.createComment({
       ...context.repo,
       issue_number: pull_request_number,
       body: message
