@@ -9,6 +9,10 @@ inputs:
       description: 'name of the person'
       required: false
       default: "DEFAULT NAME DEFINED IN action.yml"
+  message:
+      description: 'name of the person'
+      required: false
+      default: "HEllo"
 outputs:
   time: # output will be available to future steps
     description: 'The current time after waiting'
