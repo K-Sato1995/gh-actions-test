@@ -6,8 +6,9 @@ const wait = require('./wait');
 async function run() {
   try {
     const ms = core.getInput('milliseconds');
+    const name = core.getInput('name')
     core.info(`Waiting ${ms} milliseconds ...`);
-
+    core.info(`HELLO ${name}`)
     core.debug((new Date()).toTimeString()); // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
     await wait(parseInt(ms));
     core.info((new Date()).toTimeString());
