@@ -21,6 +21,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: echo "$(basename $PWD)"
+    - run: mkdir ./test
+    - run: touch test.txt
+    - run: cat test.tst
     - uses: ./
       with:
         milliseconds: 1000
