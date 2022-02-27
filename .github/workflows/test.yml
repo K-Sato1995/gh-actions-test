@@ -23,6 +23,7 @@ jobs:
     - run: echo "$(basename $PWD)"
     - run: mkdir ./test
     - run: touch test.txt
+    - run: ls
     - run: cat test.tst
     - uses: ./
       with:
