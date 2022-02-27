@@ -1,6 +1,7 @@
 const core = require('@actions/core');
 const wait = require('./wait');
 const makeComment = require('./oktkit')
+const analyze = require('./analyze');
 
 
 // most @actions toolkit packages have async methods
@@ -10,6 +11,7 @@ async function run() {
     const name = core.getInput('name')
     core.info(`Waiting ${ms} milliseconds ...`);
     core.info(`HELLO ${name}`)
+    analyze()
     makeComment()
     core.debug((new Date()).toTimeString()); // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
     await wait(parseInt(ms));
