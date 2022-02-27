@@ -1,5 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
+const analyze = require('./analyze');
 
 async function makeComment() {
   try {
@@ -11,10 +12,10 @@ async function makeComment() {
       return;
     }
     const pull_request_number = context.payload.pull_request.number;
+    const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
+    analyze()
 
-    const octokit = github.getOctokit(process.env.GITHUB_TOKEN || '');
-
-    await octokit.issues.createComment({
+    await octokit.rest.issues.createComment({
       ...context.repo,
       issue_number: pull_request_number,
       body: message
