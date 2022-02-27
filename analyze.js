@@ -5,7 +5,7 @@ const webpack = require('webpack')
 const analyze = () => {
   const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
     .BundleAnalyzerPlugin
-  const webpackConfigProd = require('react-scripts/config/webpack.config')(
+  const webpackConfigProd = require('node_modules/react-scripts/config/webpack.config')(
     'production',
   )
 
