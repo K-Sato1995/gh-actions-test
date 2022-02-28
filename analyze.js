@@ -4,29 +4,34 @@ const webpack = require('webpack')
 const core = require('@actions/core');
 
 const analyze = () => {
-  const path = core.getInput('configPath');
+  try {
+    const path = core.getInput('configPath');
 
-  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-    .BundleAnalyzerPlugin
+    const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+      .BundleAnalyzerPlugin
 
-  core.info(process.env.GITHUB_WORKSPACE)
-  core.info(path)
-  core.info(`${process.env.GITHUB_WORKSPACE}/${path}`)
-  const webpackConfigProd = require(`${process.env.GITHUB_WORKSPACE}/${path}`)
+    core.info(process.env.GITHUB_WORKSPACE)
+    core.info(path)
+    core.info(`${process.env.GITHUB_WORKSPACE}/${path}`)
+    const webpackConfigProd = require(`${process.env.GITHUB_WORKSPACE}/${path}`)
 
 
-  // pushing BundleAnalyzerPlugin to plugins array
-  webpackConfigProd.plugins.push(
-    new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
-  )
-  // actually running compilation and waiting for plugin to start explorer
-  webpack(webpackConfigProd, (err, stats) => {
-    core.info(stats)
+    // pushing BundleAnalyzerPlugin to plugins array
+    webpackConfigProd.plugins.push(
+      new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
+    )
+    // actually running compilation and waiting for plugin to start explorer
+    webpack(webpackConfigProd, (err, stats) => {
+      core.info(stats)
 
-    if (err || stats.hasErrors()) {
-      core.info(err)
-    }
-  })
+      if (err || stats.hasErrors()) {
+        core.info(err)
+      }
+    })
+  } catch (err) {
+    core.info(err)
+    core.setFailed(err.message);
+  }
 }
 
 
