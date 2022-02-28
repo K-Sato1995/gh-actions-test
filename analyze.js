@@ -1,13 +1,17 @@
 process.env.NODE_ENV = 'production'
 
 const webpack = require('webpack')
+const core = require('@actions/core');
 
 const analyze = () => {
+  const path = core.getInput('configPath');
+
   const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
     .BundleAnalyzerPlugin
-  const webpackConfigProd = require('node_modules/react-scripts/config/webpack.config')(
-    'production',
-  )
+
+  core.info(path)
+  const webpackConfigProd = require(path)
+
 
   // pushing BundleAnalyzerPlugin to plugins array
   webpackConfigProd.plugins.push(

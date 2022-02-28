@@ -17,6 +17,10 @@ inputs:
     description: 'name of the person'
     required: false
     default: "HEllo"
+  configPath:
+    description: 'name of the person'
+    required: false
+    default: "react-scripts/config/webpack.config"
 
 outputs:
   time: # output will be available to future steps
