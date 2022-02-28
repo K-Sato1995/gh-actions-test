@@ -8,12 +8,11 @@ on:
 
 jobs:
   # unit tests
-  units:
+  install:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - run: npm ci
-    - run: npm test
+      - name: install
+        run: npm ci
 
   # test action works running from the graph
   action-in-development:
@@ -23,8 +22,5 @@ jobs:
     - uses: ./
       with:
         milliseconds: 1000
-        name: "K-Sato"
-        message: "HELLO WORLD"
-        myToken: ${{ secrets.GITHUB_TOKEN }}
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
