@@ -14,12 +14,13 @@ const analyze = async () => {
     core.info("=====================ABOUT PATH=============")
     core.info(process.env.GITHUB_WORKSPACE)
     core.info(configPath)
+    core.info(path)
     const dirPath = path.resolve(__dirname, configPath);
     core.info(dirPath)
     core.info(`${process.env.GITHUB_WORKSPACE}/${configPath}`)
     core.info("=============================================")
 
-    const webpackConfigProd = require(`${process.env.GITHUB_WORKSPACE}/${path}`)
+    const webpackConfigProd = require(`${process.env.GITHUB_WORKSPACE}/${configPath}`)
 
     core.info("=====================ABOUT WPSETTING=============")
 
