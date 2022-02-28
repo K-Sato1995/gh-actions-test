@@ -13,7 +13,9 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
-    - name: install
+    - name: ls
+      run: pwd && ls -a
+    - name: package install
       run: npm ci
     - name: origina-workflow
       uses: ./
