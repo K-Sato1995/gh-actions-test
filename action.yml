@@ -26,5 +26,5 @@ outputs:
   time: # output will be available to future steps
     description: 'The current time after waiting'
 runs:
-  using: 'node16'
+  using: 'node14'
   main: 'dist/index.js'
