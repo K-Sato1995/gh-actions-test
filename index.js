@@ -11,7 +11,7 @@ async function run() {
     core.info(`Waiting ${ms} milliseconds ...`);
     core.info(`HELLO ${name}`)
     await analyze()
-    await makeComment()
+    // await makeComment()
     core.debug((new Date()).toTimeString()); // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
     await wait(parseInt(ms));
     core.info((new Date()).toTimeString());
