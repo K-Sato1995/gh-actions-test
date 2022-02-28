@@ -37,8 +37,9 @@ const analyze = async () => {
     core.info("=============================================")
 
     const compiler = webpack(webpackConfigProd)
-    core.info(Object.entries(compiler))
 
+
+    core.info("Before run")
     compiler.run((err, stats) => { // [Stats Object](#stats-object)
       core.info(stats)
 
