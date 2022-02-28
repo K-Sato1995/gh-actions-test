@@ -1,6 +1,6 @@
 const core = require('@actions/core');
 const wait = require('./wait');
-const makeComment = require('./oktkit')
+// const makeComment = require('./oktkit')
 const analyze = require('./analyze');
 
 // most @actions toolkit packages have async methods
