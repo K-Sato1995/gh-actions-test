@@ -1,6 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
+// API DOC: https://docs.github.com/en/rest/reference/pages#create-a-github-pages-site
 async function deployPages() {
   try {
     const context = github.context;
@@ -10,12 +11,7 @@ async function deployPages() {
     core.info('========================')
     const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
 
-    await octokit.request('POST /repos/K-Sato1995/gh-actions-test/pages', {
-      source: {
-        branch: 'gh-pages',
-        path: 'report'
-      }
-    })
+    await octokit.request('POST /repos/K-Sato1995/gh-actions-test/pages/builds')
 
 
   } catch (error) {

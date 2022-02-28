@@ -13,7 +13,7 @@ const core = require('@actions/core');
 // https://github.com/K-Sato1995/gh-actions-test/tree/gh-pages
 // https://k-sato1995.github.io/gh-actions-test/index.html
 async function upload() {
-  const artifactName = "coverage"
+  const artifactName = "report"
   // const fileName = 'artifactfile.html'
   // const data = ''
   const artifactClient = artifact.create();
@@ -31,7 +31,7 @@ async function upload() {
   console.log(`Uploading ${process.env.GITHUB_WORKSPACE}`);
 
 
-  const response = await artifactClient.uploadArtifact(artifactName, [`${process.env.GITHUB_WORKSPACE}/output/test/code-coverage.html`], __dirname);
+  const response = await artifactClient.uploadArtifact(artifactName, [`${process.env.GITHUB_WORKSPACE}/report/report.html`], __dirname);
   console.log('Artifact uploaded', response);
 }
 
