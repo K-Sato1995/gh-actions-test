@@ -32,12 +32,12 @@ const analyze = async () => {
     )
 
 
-    core.info(`${webpackConfigProd.plugins}`)
+    core.info(Object.entries(webpackConfigProd.plugins))
     // actually running compilation and waiting for plugin to start explorer
     core.info("=============================================")
 
     const compiler = webpack(webpackConfigProd)
-    core.info(`${compiler}`)
+    core.info(Object.entries(compiler))
 
     compiler.run((err, stats) => { // [Stats Object](#stats-object)
       core.info(stats)
