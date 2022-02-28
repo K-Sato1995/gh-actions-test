@@ -9,8 +9,10 @@ const analyze = () => {
   const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
     .BundleAnalyzerPlugin
 
+  core.info(process.env.GITHUB_WORKSPACE)
   core.info(path)
-  const webpackConfigProd = require(path)
+  core.info(`${process.env.GITHUB_WORKSPACE}/${path}`)
+  const webpackConfigProd = require(`${process.env.GITHUB_WORKSPACE}/${path}`)
 
 
   // pushing BundleAnalyzerPlugin to plugins array
