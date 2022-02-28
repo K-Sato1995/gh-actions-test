@@ -21,8 +21,10 @@ const analyze = () => {
   )
   // actually running compilation and waiting for plugin to start explorer
   webpack(webpackConfigProd, (err, stats) => {
+    core.info(stats)
+
     if (err || stats.hasErrors()) {
-      console.error(err)
+      core.info(err)
     }
   })
 }

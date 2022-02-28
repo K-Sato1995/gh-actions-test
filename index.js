@@ -3,7 +3,6 @@ const wait = require('./wait');
 const makeComment = require('./oktkit')
 const analyze = require('./analyze');
 
-
 // most @actions toolkit packages have async methods
 async function run() {
   try {
