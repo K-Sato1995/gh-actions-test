@@ -10,12 +10,18 @@ const analyze = async () => {
     const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
       .BundleAnalyzerPlugin
 
+    core.info("=====================ABOUT PATH=============")
     core.info(process.env.GITHUB_WORKSPACE)
     core.info(path)
     core.info(`${process.env.GITHUB_WORKSPACE}/${path}`)
+    core.info("=============================================")
+
     const webpackConfigProd = require(`${process.env.GITHUB_WORKSPACE}/${path}`)
 
+    core.info("=====================ABOUT WPSETTING=============")
+
     core.info(JSON.stringify(webpackConfigProd))
+
     if (!webpackConfigProd.plugins) {
       webpackConfigProd["plugins"] = []
     }
@@ -28,8 +34,10 @@ const analyze = async () => {
 
     core.info(JSON.stringify(webpackConfigProd.plugins))
     // actually running compilation and waiting for plugin to start explorer
+    core.info("=============================================")
+
     const compiler = webpack(webpackConfigProd)
-    core.info(JSON.stringify(compiler)))
+    core.info(JSON.stringify(compiler))
 
     compiler.run((err, stats) => { // [Stats Object](#stats-object)
       core.info(stats)
