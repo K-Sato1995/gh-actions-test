@@ -24,6 +24,9 @@ const analyze = async () => {
     webpackConfigProd.plugins.push(
       new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
     )
+
+
+    core.info(webpackConfigProd)
     // actually running compilation and waiting for plugin to start explorer
     const compiler = webpack(webpackConfigProd)
     compiler.run((err, stats) => { // [Stats Object](#stats-object)
