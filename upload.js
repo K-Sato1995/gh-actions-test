@@ -1,6 +1,6 @@
 const artifact = require('@actions/artifact');
 // const fs = require('fs')
-const tmp = require('tmp')
+// const tmp = require('tmp')
 const core = require('@actions/core');
 
 // https://github.com/mrdoob/three.js/pull/19326/files
@@ -11,7 +11,7 @@ async function upload() {
   // const data = ''
   const artifactClient = artifact.create();
 
-  const dir = tmp.dirSync();
+  // const dir = tmp.dirSync();
   // const file = tmp.fileSync({ name: fileName, dir: dir.name });
 
   core.info("=========UPLOAD============")
@@ -24,7 +24,7 @@ async function upload() {
   console.log(`Uploading ${process.env.GITHUB_WORKSPACE}`);
 
 
-  const response = await artifactClient.uploadArtifact(artifactName, [`${process.env.GITHUB_WORKSPACE}/output/test/code-coverage.html`], dir.name);
+  const response = await artifactClient.uploadArtifact(artifactName, [`${process.env.GITHUB_WORKSPACE}/output/test/code-coverage.html`], __dirname);
   console.log('Artifact uploaded', response);
 }
 
