@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-// const makeComment = require('./oktkit')
+const makeComment = require('./oktkit')
 const analyze = require('./analyze');
 
 // most @actions toolkit packages have async methods
@@ -10,7 +10,7 @@ async function run() {
     core.info(`Waiting ${ms} milliseconds ...`);
     core.info(`HELLO ${name}`)
     await analyze()
-    // await makeComment()
+    await makeComment()
   } catch (error) {
     core.setFailed(error.message);
   }

@@ -6,6 +6,10 @@ async function makeComment() {
     const message = core.getInput('message');
 
     const context = github.context;
+    core.info('============GITHUB INFO=============')
+    core.info(github.context)
+    core.info(context.payload)
+    core.info('========================')
     if (context.payload.pull_request == null) {
       core.setFailed('No pull request found.');
       return;
