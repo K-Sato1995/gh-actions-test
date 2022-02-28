@@ -16,6 +16,12 @@ const analyze = async () => {
     const webpackConfigProd = require(`${process.env.GITHUB_WORKSPACE}/${path}`)
 
 
+    if (!webpackConfigProd.plugins) {
+      webpackConfigProd["plugins"] = []
+    }
+
+
+
     // pushing BundleAnalyzerPlugin to plugins array
     webpackConfigProd.plugins.push(
       new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
