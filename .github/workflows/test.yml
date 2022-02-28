@@ -13,10 +13,10 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
-    - name: ls
-      run: pwd && ls -a
     - name: buld-demo
       run: cd demo && npm run build && cd ..
+    - name: ls
+      run: pwd && ls -a
     - name: package install
       run: npm ci
     - name: origina-workflow
