@@ -21,13 +21,25 @@ const analyze = () => {
       new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
     )
     // actually running compilation and waiting for plugin to start explorer
-    webpack(webpackConfigProd, (err, stats) => {
+    const compiler = webpack(webpackConfigProd, (err, stats) => {
       core.info(stats)
 
       if (err || stats.hasErrors()) {
         core.info(err)
       }
     })
+
+    compiler.run((err, stats) => { // [Stats Object](#stats-object)
+      core.info(stats)
+
+      if (err || stats.hasErrors()) {
+        core.info(err)
+      }
+      compiler.close((closeErr) => {
+        core.info(closeErr)
+      });
+    });
+
   } catch (err) {
     core.info(err)
     core.setFailed(err.message);
