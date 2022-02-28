@@ -20,7 +20,7 @@ inputs:
   configPath:
     description: 'name of the person'
     required: false
-    default: "react-scripts/config/webpack.config"
+    default: "node_modules/react-scripts/config/webpack.config"
 
 outputs:
   time: # output will be available to future steps
