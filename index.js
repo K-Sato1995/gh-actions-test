@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-const makeComment = require('./oktkit')
+// const makeComment = require('./oktkit')
 const analyze = require('./analyze');
 const upload = require('./upload');
 
@@ -12,7 +12,7 @@ async function run() {
     core.info(`HELLO ${name}`)
     await analyze()
     await upload()
-    await makeComment()
+    // await makeComment()
   } catch (error) {
     core.setFailed(error.message);
   }
