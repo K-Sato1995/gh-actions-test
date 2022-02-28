@@ -29,12 +29,11 @@
     "@actions/core": "^1.2.5",
     "@actions/github": "^5.0.0",
     "webpack": "^5.69.1",
-    "webpack-bundle-analyzer": "^4.5.0"
+    "webpack-bundle-analyzer": "^4.5.0",
+    "eslint": "^8.0.0",
+    "jest": "^27.2.5"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.31.1",
-    "eslint": "^8.0.0",
-    "jest": "^27.2.5",
-    "webpack-cli": "^4.9.2"
+    "@vercel/ncc": "^0.31.1"
   }
 }
