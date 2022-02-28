@@ -20,7 +20,7 @@ const analyze = async () => {
 
     core.info("=====================ABOUT WPSETTING=============")
 
-    core.info(JSON.stringify(webpackConfigProd))
+    core.info(webpackConfigProd)
 
     if (!webpackConfigProd.plugins) {
       webpackConfigProd["plugins"] = []
@@ -32,12 +32,12 @@ const analyze = async () => {
     )
 
 
-    core.info(JSON.stringify(webpackConfigProd.plugins))
+    core.info(webpackConfigProd.plugins)
     // actually running compilation and waiting for plugin to start explorer
     core.info("=============================================")
 
     const compiler = webpack(webpackConfigProd)
-    core.info(JSON.stringify(compiler))
+    core.info(compiler)
 
     compiler.run((err, stats) => { // [Stats Object](#stats-object)
       core.info(stats)
