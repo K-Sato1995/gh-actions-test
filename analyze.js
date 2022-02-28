@@ -3,7 +3,7 @@ process.env.NODE_ENV = 'production'
 const webpack = require('webpack')
 const core = require('@actions/core');
 
-const analyze = () => {
+const analyze = async () => {
   try {
     const path = core.getInput('configPath');
 
