@@ -22,7 +22,6 @@ const analyze = async () => {
 
     const webpackConfigProd = require(`${process.env.GITHUB_WORKSPACE}/${configPath}`)
 
-    core.info("=====================ABOUT WPSETTING=============")
 
     core.info(JSON.stringify(webpackConfigProd))
 
