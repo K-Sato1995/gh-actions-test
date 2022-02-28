@@ -15,7 +15,7 @@ const analyze = async () => {
     core.info(`${process.env.GITHUB_WORKSPACE}/${path}`)
     const webpackConfigProd = require(`${process.env.GITHUB_WORKSPACE}/${path}`)
 
-    core.info(webpackConfigProd)
+    core.info(JSON.stringify(webpackConfigProd))
     if (!webpackConfigProd.plugins) {
       webpackConfigProd["plugins"] = []
     }
@@ -26,9 +26,11 @@ const analyze = async () => {
     )
 
 
-    core.info(webpackConfigProd)
+    core.info(JSON.stringify(webpackConfigProd.plugins))
     // actually running compilation and waiting for plugin to start explorer
     const compiler = webpack(webpackConfigProd)
+    core.info(JSON.stringify(compiler)))
+
     compiler.run((err, stats) => { // [Stats Object](#stats-object)
       core.info(stats)
 
