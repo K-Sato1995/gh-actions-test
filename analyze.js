@@ -20,8 +20,6 @@ const analyze = async () => {
       webpackConfigProd["plugins"] = []
     }
 
-
-
     // pushing BundleAnalyzerPlugin to plugins array
     webpackConfigProd.plugins.push(
       new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
