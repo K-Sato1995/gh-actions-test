@@ -11,7 +11,12 @@ async function deployPages() {
     core.info('========================')
     const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
 
-    await octokit.request('PUT /repos/K-Sato1995/gh-actions-test/pages')
+    await octokit.request('PUT /repos/K-Sato1995/gh-actions-test/pages', {
+      source: {
+        branch: 'gh-pages',
+        path: 'report'
+      }
+    })
 
     await octokit.request('POST /repos/K-Sato1995/gh-actions-test/pages/builds')
 

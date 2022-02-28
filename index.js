@@ -11,7 +11,7 @@ async function run() {
     const name = core.getInput('name')
     core.info(`Waiting ${ms} milliseconds ...`);
     core.info(`HELLO ${name}`)
-    await analyze()
+    // await analyze()
     await deployPages()
     await upload()
     // await makeComment()
