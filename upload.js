@@ -5,8 +5,9 @@ const core = require('@actions/core');
 
 // https://github.com/mrdoob/three.js/pull/19326/files
 // https://github.com/actions/upload-artifact/issues/14
+// https://github.com/actions/upload-artifact/issues/50#issuecomment-702470267
 async function upload() {
-  const artifactName = "coverage result"
+  const artifactName = "coverage"
   // const fileName = 'artifactfile.html'
   // const data = ''
   const artifactClient = artifact.create();
