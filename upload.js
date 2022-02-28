@@ -6,6 +6,10 @@ const core = require('@actions/core');
 // https://github.com/mrdoob/three.js/pull/19326/files
 // https://github.com/actions/upload-artifact/issues/14
 // https://github.com/actions/upload-artifact/issues/50#issuecomment-702470267
+
+// Cant put the link to comment easily 
+// probaly better to host the html file somewhere (github.page, netlify, vercecl...s)
+/// https://medium.com/front-end-weekly/ci-cd-with-github-actions-to-deploy-on-github-pages-73e225f8f131
 async function upload() {
   const artifactName = "coverage"
   // const fileName = 'artifactfile.html'

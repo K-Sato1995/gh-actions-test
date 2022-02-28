@@ -8,7 +8,8 @@
     "prepare": "ncc build index.js -o dist --source-map --license licenses.txt",
     "test": "jest",
     "all": "npm run lint && npm run prepare && npm run test",
-    "build-demo": "webpack --config demo/webpack.config.js"
+    "build-demo": "webpack --config demo/webpack.config.js",
+    "pages": "gh-pages -d report"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
     "webpack-bundle-analyzer": "^4.5.0"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.31.1"
+    "@vercel/ncc": "^0.31.1",
+    "gh-pages": "^3.2.3"
   }
 }
