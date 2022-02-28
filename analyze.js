@@ -2,18 +2,21 @@ process.env.NODE_ENV = 'production'
 
 const webpack = require('webpack')
 const core = require('@actions/core');
+const path = require('path')
 
 const analyze = async () => {
   try {
-    const path = core.getInput('configPath');
+    const configPath = core.getInput('configPath');
 
     const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
       .BundleAnalyzerPlugin
 
     core.info("=====================ABOUT PATH=============")
     core.info(process.env.GITHUB_WORKSPACE)
-    core.info(path)
-    core.info(`${process.env.GITHUB_WORKSPACE}/${path}`)
+    core.info(configPath)
+    const dirPath = path.resolve(__dirname, configPath);
+    core.info(dirPath)
+    core.info(`${process.env.GITHUB_WORKSPACE}/${configPath}`)
     core.info("=============================================")
 
     const webpackConfigProd = require(`${process.env.GITHUB_WORKSPACE}/${path}`)
@@ -31,8 +34,6 @@ const analyze = async () => {
       new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
     )
 
-
-    core.info(Object.entries(webpackConfigProd.plugins))
     // actually running compilation and waiting for plugin to start explorer
     core.info("=============================================")
 
