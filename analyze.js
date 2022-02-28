@@ -15,7 +15,7 @@ const analyze = async () => {
     core.info(`${process.env.GITHUB_WORKSPACE}/${path}`)
     const webpackConfigProd = require(`${process.env.GITHUB_WORKSPACE}/${path}`)
 
-
+    core.info(webpackConfigProd)
     if (!webpackConfigProd.plugins) {
       webpackConfigProd["plugins"] = []
     }
