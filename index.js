@@ -22,7 +22,7 @@ async function run() {
     core.info("=============UPLOAD ENDED================")
 
     const result3 = await getArtifactURL()
-    core.info(result3)
+    core.info(JSON.stringify(result3))
     await makeComment(itemPath)
   } catch (error) {
     core.setFailed(error.message);
