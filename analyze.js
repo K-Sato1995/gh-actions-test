@@ -39,30 +39,49 @@ const analyze = async () => {
 
     const compiler = webpack(webpackConfigProd)
 
+    build(compiler)
+    // core.info("Before run")
+    // await compiler.run((err, stats) => { // [Stats Object](#stats-object)
+    //   core.info("IN  run")
+    //   core.info(stats)
 
-    core.info("Before run")
-    await compiler.run((err, stats) => { // [Stats Object](#stats-object)
-      core.info("IN  run")
-      core.info(stats)
+    //   if (err || stats.hasErrors()) {
+    //     core.info(err)
+    //   }
+    //   compiler.close((closeErr) => {
+    //     core.info(closeErr)
+    //   });
+    // });
 
-      if (err || stats.hasErrors()) {
-        core.info(err)
-      }
-      compiler.close((closeErr) => {
-        core.info(closeErr)
-      });
-    });
-
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve('20 seconds');
-      }, 20000);
-    });
+    // return new Promise(resolve => {
+    //   setTimeout(() => {
+    //     resolve('20 seconds');
+    //   }, 20000);
+    // });
   } catch (err) {
     core.info(err)
     core.setFailed(err.message);
   }
 }
 
+
+
+
+function build(compiler) {
+  return new Promise((resolve, reject) => {
+    compiler.run((err, stats) => { // [Stats Object](#stats-object)
+      if (err || stats.hasErrors()) {
+        reject(err)
+      }
+      compiler.close((closeErr) => {
+        reject(closeErr)
+      });
+    });
+
+    compiler.hooks.done.tap('IDoNotUnderstandWhatThisStringIsForButItCannotBeEmpty', () => {
+      resolve('compile finished');
+    });
+  });
+}
 
 module.exports = analyze;
