@@ -1,9 +1,10 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
-async function makeComment(str) {
+async function makeComment() {
   try {
-    const message = `[download artifact](${process.env.GITHUB_WORKSPACE}${str})`
+    const path = `https:/K-/github.com/K-Sato1995/gh-actions-test/actions/runs/${github.run_id}`
+    const message = `[download artifact](${path})`
 
     const context = github.context;
 
