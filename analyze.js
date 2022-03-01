@@ -20,7 +20,7 @@ const analyze = async () => {
     core.info(`${process.env.GITHUB_WORKSPACE}/${configPath}`)
     core.info("=============================================")
 
-    const webpackConfigProd = require(`cc/${configPath}`)
+    const webpackConfigProd = require(`${process.env.GITHUB_WORKSPACE}/${configPath}`)
 
 
     core.info(JSON.stringify(webpackConfigProd))
