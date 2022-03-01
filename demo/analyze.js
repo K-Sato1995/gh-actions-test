@@ -15,7 +15,7 @@ const analyze = () => {
 
     // pushing BundleAnalyzerPlugin to plugins array
     webpackConfigProd.plugins.push(
-      new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
+      new BundleAnalyzerPlugin({ analyzerMode: 'static', reportFilename: `${__dirname}/output/report.html` }),
     )
     // actually running compilation and waiting for plugin to start explorer
     const compiler = webpack(webpackConfigProd)

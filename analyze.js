@@ -31,7 +31,7 @@ const analyze = async () => {
 
     // pushing BundleAnalyzerPlugin to plugins array
     webpackConfigProd.plugins.push(
-      new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
+      new BundleAnalyzerPlugin({ analyzerMode: 'static', reportFilename: `${__dirname}/analyzeOutput/index.html` }),
     )
 
     // actually running compilation and waiting for plugin to start explorer
