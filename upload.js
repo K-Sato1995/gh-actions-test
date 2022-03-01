@@ -31,7 +31,7 @@ async function upload() {
   console.log(`Uploading ${process.env.GITHUB_WORKSPACE}`);
 
 
-  const response = await artifactClient.uploadArtifact(artifactName, [`${process.env.GITHUB_WORKSPACE}/report/index.html`], __dirname);
+  const response = await artifactClient.uploadArtifact(artifactName, [`${process.env.GITHUB_WORKSPACE}/analyzeOutput/index.html`], __dirname);
   console.log('Artifact uploaded', response);
 }
 
