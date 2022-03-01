@@ -41,7 +41,7 @@ const analyze = async () => {
 
 
     core.info("Before run")
-    compiler.run((err, stats) => { // [Stats Object](#stats-object)
+    await compiler.run((err, stats) => { // [Stats Object](#stats-object)
       core.info("IN  run")
       core.info(stats)
 
