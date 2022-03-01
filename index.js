@@ -15,10 +15,6 @@ async function run() {
     core.info(result)
 
     console.log(`Uploading ${process.env.GITHUB_WORKSPACE}`);
-    setTimeout(() => {
-      core.info('20 seconds');
-    }, 20000);
-
     core.info("=============ANALYZE ENDED================")
     // await deployPages()
     core.info("=============UPLOAD CALLED================")

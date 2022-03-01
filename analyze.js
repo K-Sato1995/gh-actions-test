@@ -52,6 +52,10 @@ const analyze = async () => {
         core.info(closeErr)
       });
     });
+    setTimeout(() => {
+      core.info('20 seconds');
+    }, 20000);
+
 
   } catch (err) {
     core.info(err)
