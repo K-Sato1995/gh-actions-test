@@ -1,15 +1,12 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
-async function makeComment() {
+async function makeComment(str) {
   try {
-    const message = core.getInput('message');
+    const message = core.getInput(`[download artifact](${process.env.GITHUB_WORKSPACE}${str})`);
 
     const context = github.context;
-    core.info('============GITHUB INFO=============')
-    core.info(github.context)
-    core.info(context.payload)
-    core.info('========================')
+
     if (context.payload.pull_request == null) {
       core.setFailed('No pull request found.');
       return;

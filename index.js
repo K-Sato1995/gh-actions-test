@@ -17,10 +17,10 @@ async function run() {
     // await deployPages()
     core.info("=============UPLOAD CALLED================")
     const result2 = await upload()
-    core.info(result2)
+    const itemPath = result2.artifactItems[0]
     core.info("=============UPLOAD ENDED================")
 
-    await makeComment()
+    await makeComment(itemPath)
   } catch (error) {
     core.setFailed(error.message);
   }
