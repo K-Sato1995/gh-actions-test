@@ -5,8 +5,8 @@ echo "WHATEVER IT IS,,, I'M RELEASEING IT"
 echo "==================================="
 echo "==================================="
 
-rm -rf dist/
-npm run prepare
+# rm -rf dist/
+# npm run prepare
 
 echo "INPUT VERSION PLZZZZZZZZZZZ"
 read tag
