@@ -23,7 +23,7 @@ jobs:
       uses: ./
       with:
         milliseconds: 1000
-        configPath: "/demo/webpack.config"
+        configPath: "demo/webpack.config"
     - name: deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
