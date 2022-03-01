@@ -3,7 +3,8 @@ const github = require('@actions/github');
 
 async function makeComment() {
   try {
-    const path = `https:/K-/github.com/K-Sato1995/gh-actions-test/actions/runs/${process.env.GITHUB_RUN_ID}`
+    // $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+    const path = `https://github.com/K-Sato1995/gh-actions-test/actions/runs/${process.env.GITHUB_RUN_ID}`
     const message = `[download artifact](${path})`
 
     const context = github.context;
