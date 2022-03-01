@@ -20,7 +20,7 @@ const analyze = async () => {
     core.info(`${process.env.GITHUB_WORKSPACE}/${configPath}`)
     core.info("=============================================")
 
-    const webpackConfigProd = require(`${process.env.GITHUB_WORKSPACE}/${configPath}`)
+    const webpackConfigProd = require(`cc/${configPath}`)
 
 
     core.info(JSON.stringify(webpackConfigProd))
@@ -31,7 +31,7 @@ const analyze = async () => {
 
     // pushing BundleAnalyzerPlugin to plugins array
     webpackConfigProd.plugins.push(
-      new BundleAnalyzerPlugin({ analyzerMode: 'static', reportFilename: `${__dirname}/analyzeOutput/index.html` }),
+      new BundleAnalyzerPlugin({ analyzerMode: 'static', reportFilename: `${process.env.GITHUB_WORKSPACE}/analyzeOutput/index.html` }),
     )
 
     // actually running compilation and waiting for plugin to start explorer
