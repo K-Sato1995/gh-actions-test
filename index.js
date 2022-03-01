@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-// const makeComment = require('./oktkit')
+const makeComment = require('./oktkit')
 const analyze = require('./analyze');
 const upload = require('./upload');
 // const deployPages = require('./deploy')
@@ -20,7 +20,7 @@ async function run() {
     core.info(result2)
     core.info("=============UPLOAD ENDED================")
 
-    // await makeComment()
+    await makeComment()
   } catch (error) {
     core.setFailed(error.message);
   }
