@@ -7,10 +7,9 @@ const getArtifactURL = async () => {
   const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
 
   const result = await octokit.request('GET /repos/{owner}/{repo}/actions/artifacts', {
-    owner: 'octocat',
-    repo: 'hello-world'
+    owner: 'K-Sato1995',
+    repo: 'gh-actions-test'
   })
-
   return result
 
 }
