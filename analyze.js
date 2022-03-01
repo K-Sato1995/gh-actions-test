@@ -39,7 +39,7 @@ const analyze = async () => {
 
     const compiler = webpack(webpackConfigProd)
 
-    build(compiler)
+    await build(compiler)
     // core.info("Before run")
     // await compiler.run((err, stats) => { // [Stats Object](#stats-object)
     //   core.info("IN  run")

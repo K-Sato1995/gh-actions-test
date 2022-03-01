@@ -13,8 +13,6 @@ async function run() {
     core.info("=============ANALYZE CALLED================")
     const result = await analyze()
     core.info(result)
-
-    console.log(`Uploading ${process.env.GITHUB_WORKSPACE}`);
     core.info("=============ANALYZE ENDED================")
     // await deployPages()
     core.info("=============UPLOAD CALLED================")
