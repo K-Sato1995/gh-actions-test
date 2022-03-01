@@ -3,7 +3,7 @@ const github = require('@actions/github');
 
 async function makeComment(str) {
   try {
-    const message = core.getInput(`[download artifact](${process.env.GITHUB_WORKSPACE}${str})`);
+    const message = `[download artifact](${process.env.GITHUB_WORKSPACE}${str})`
 
     const context = github.context;
 
