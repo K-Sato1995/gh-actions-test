@@ -29,7 +29,9 @@ async function upload() {
   // fs.writeFileSync(file.name, JSON.stringify(data, null, 2));
 
   console.log(`Uploading ${process.env.GITHUB_WORKSPACE}`);
-
+  setTimeout(() => {
+    core.info('10 seconds');
+  }, 10000);
 
   const response = await artifactClient.uploadArtifact(artifactName, [`${process.env.GITHUB_WORKSPACE}/analyzeOutput/index.html`], __dirname);
   console.log('Artifact uploaded', response);
