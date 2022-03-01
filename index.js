@@ -2,6 +2,7 @@ const core = require('@actions/core');
 const makeComment = require('./oktkit')
 const analyze = require('./analyze');
 const upload = require('./upload');
+const getArtifactURL = require('./artifact')
 // const deployPages = require('./deploy')
 
 // most @actions toolkit packages have async methods
@@ -20,6 +21,8 @@ async function run() {
     const itemPath = result2.artifactItems[0]
     core.info("=============UPLOAD ENDED================")
 
+    const result3 = await getArtifactURL()
+    core.info(result3)
     await makeComment(itemPath)
   } catch (error) {
     core.setFailed(error.message);
